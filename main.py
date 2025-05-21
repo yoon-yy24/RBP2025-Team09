@@ -11,7 +11,7 @@ import numpy as np
 class DetermineColor(Node):
     def __init__(self):
         super().__init__('color_detector')
-        self.image_sub = self.create_subscription(Image, '/color', self.callback, 10)
+        self.image_sub = self.create_subscription(Image, '/camera/color/image_raw', self.callback, 10)
         self.color_pub = self.create_publisher(Header, '/rotate_cmd', 10)
         self.bridge = CvBridge()
 
