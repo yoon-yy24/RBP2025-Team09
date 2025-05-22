@@ -56,6 +56,8 @@ class DetermineColor(Node):
             mask = np.zeros_like(gray)
             if selected_contour is not None:
                 cv2.drawContours(mask, [selected_contour], -1, 255, -1)
+            else:
+                mask[:, :] = 255
 
             # HSV 색상 분석
             hsv = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
